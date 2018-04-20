@@ -56,7 +56,6 @@
     </distributionManagement>
 
     <properties>
-        <!--<local.repo.host>http://maven.mogujie.org</local.repo.host>-->
         <local.repo.host>http://maven.aliyun.com</local.repo.host>
     </properties>
 
@@ -72,7 +71,7 @@
             <dependency>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-core</artifactId>
-                <version>1.3.5</version>
+                <version>1.3.6</version>
             </dependency>
 
         </dependencies>
