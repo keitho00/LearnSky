@@ -17,6 +17,7 @@
     <modules>
         <module>web</module>
         <module>mybatis</module>
+        <module>squirrel</module>
     </modules>
 
     <repositories>
@@ -74,6 +75,23 @@
                 <version>1.3.6</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>23.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.squirrelframework</groupId>
+                <artifactId>squirrel-foundation</artifactId>
+                <version>0.3.8</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
