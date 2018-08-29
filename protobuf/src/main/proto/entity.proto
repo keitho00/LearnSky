@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+message Person {
+    optional int32 id = 1;
+    optional string name = 2;
+
+    repeated Phone phone = 4;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    message Phone {
+      optional  string number = 1;
+      optional  PhoneType type = 2;
+    }
+}
+
+
+message UnionInfoValue
+{
+    optional uint32 _version = 1 [ default = 1];
+    optional int32 _uid = 2 [ default = 0 ];
+    optional string _password1 = 3 [ default = "" ];
+    optional uint32 _seq = 4 [ default = 0 ];
+}

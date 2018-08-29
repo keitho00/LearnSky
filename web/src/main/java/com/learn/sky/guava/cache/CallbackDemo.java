@@ -19,7 +19,7 @@ public class CallbackDemo {
             try{
                 String result=cache.get("java", () -> "hello java! "+System.currentTimeMillis());
                 System.out.println(result);
-                Thread.sleep(100);
+                Thread.sleep(2000);
             }catch (Exception e){
                 e.printStackTrace();
             }

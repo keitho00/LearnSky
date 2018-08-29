@@ -1,0 +1,59 @@
+package com.learn.sky.mybatis.plus.config;
+
+import com.baomidou.mybatisplus.MybatisConfiguration;
+import com.baomidou.mybatisplus.MybatisXMLLanguageDriver;
+import com.baomidou.mybatisplus.entity.GlobalConfiguration;
+import com.baomidou.mybatisplus.mapper.LogicSqlInjector;
+import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
+import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.plugin.Interceptor;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.type.JdbcType;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ResourceLoader;
+
+import javax.sql.DataSource;
+
+/**
+ * @Author: wanghao
+ * @Date: 2018/6/12 下午9:17
+ */
+@Configuration
+@MapperScan("com.learn.sky.mybaits.plus.mapper")
+public class MybatisPlusConfig {
+
+    /*
+     * 分页插件，自动识别数据库类型
+     * 多租户，请参考官网【插件扩展】
+     */
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
+
+   /*
+    * oracle数据库配置JdbcTypeForNull
+    * 参考：https://gitee.com/baomidou/mybatisplus-boot-starter/issues/IHS8X
+    不需要这样配置了，参考 yml:
+    mybatis-plus:
+      confuguration
+        dbc-type-for-null: 'null'
+   @Bean
+   public ConfigurationCustomizer configurationCustomizer(){
+       return new MybatisPlusCustomizers();
+   }
+
+   class MybatisPlusCustomizers implements ConfigurationCustomizer {
+
+       @Override
+       public void customize(org.apache.ibatis.session.Configuration configuration) {
+           configuration.setJdbcTypeForNull(JdbcType.NULL);
+       }
+   }
+   */
+
+}
