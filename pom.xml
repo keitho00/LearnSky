@@ -22,6 +22,8 @@
         <module>netty</module>
         <module>guava</module>
         <module>protobuf</module>
+        <module>mq</module>
+        <module>tool</module>
     </modules>
 
     <repositories>
@@ -63,6 +65,7 @@
     <properties>
         <local.repo.host>http://maven.aliyun.com</local.repo.host>
         <grpc.version>1.3.0</grpc.version>
+        <mq.version>4.3.0</mq.version>
     </properties>
 
     <dependencyManagement>
@@ -171,6 +174,24 @@
                 <artifactId>protobuf-java</artifactId>
                 <version>3.5.0</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${mq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-common</artifactId>
+                <version>${mq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-remoting</artifactId>
+                <version>${mq.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
@@ -278,65 +299,5 @@
         </resources>
     </build>
 
-    <profiles>
-        <profile>
-            <id>deploy</id>
-            <build>
-                <filters>
-                    <filter>/tmp/eless/conf/config.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <!-- 测试环境 -->
-        <profile>
-            <id>dev</id>
-            <properties>
-                <env>dev</env>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <filters>
-                    <filter>../dev_config.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <!-- 预发布环境 -->
-        <profile>
-            <id>pre</id>
-            <properties>
-                <env>pre</env>
-            </properties>
-            <build>
-                <filters>
-                    <filter>../pre_config.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <!-- 生产环境 -->
-        <profile>
-            <id>online</id>
-            <properties>
-                <env>online</env>
-            </properties>
-            <build>
-                <filters>
-                    <filter>../online_config.properties</filter>
-                </filters>
-            </build>
-        </profile>
-        <!-- 线下环境 -->
-        <profile>
-            <id>offline</id>
-            <properties>
-                <env>offline</env>
-            </properties>
-            <build>
-                <filters>
-                    <filter>../offline_config.properties</filter>
-                </filters>
-            </build>
-        </profile>
-    </profiles>
+
 </project>
