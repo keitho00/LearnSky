@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+    <!--占位符定义-->
+    <property name="appName" value="learn" />
+
+    <!--占位符定义：日志格式-->
+    <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
+
+    <!--占位符定义：日志文件路径，统计使用，最后一层可自定义 /business or /biz 等等-->
+    <property name="FILE_PATH_STAT" value="/home/www/logs/applogs/${appName}/${HOSTNAME}-${appName}/default" />
+
+    <!--占位符定义：日志文件路径，actuator监控日志-->
+    <property name="FILE_PATH_ACTUATOR" value="./../logs" />
+
+
+
+    <!--用来设置上下文名称，用于区分不同应用程序的记录-->
+    <contextName>${appName}</contextName>
+
+
+
+    <!--日志输出的目的地-->
+    <!--日志输出的目的地：控制台，本地启服务使用-->
+    <appender name="CONSOLE_LOCAL" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- pattern节点，用来设置日志的输入格式 -->
+            <pattern>${PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!--日志输出的目的地：文件，统计使用-->
+    <!-- RollingFileAppender：滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 -->
+    <appender name="FILE_STAT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${FILE_PATH_STAT}/${appName}.json</file>
+        <!-- rollingPolicy:当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名。 -->
+        <!-- TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${FILE_PATH_STAT}/${appName}.%d{yyyy-MM-dd}.json</fileNamePattern>
+            <!-- 每产生一个日志文件，该日志文件的保存期限为100天 -->
+            <MaxHistory>100</MaxHistory>
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <pattern>
+                    <pattern>
+                        {
+                        "ts": "%date{\"yyyy-MM-dd'T'HH:mm:ss.SSSZ\"}",
+                        "pid": "${PID:-}",
+                        "thread": "%thread",
+                        "class": "%logger{40}",
+                        "ln": "%line",
+                        "tid":"%X{TRACE_ID}",
+                        "aid": "${appName:-}",
+                        "level": "%level",
+                        "msg": "%message",
+                        "stk": "%exception{5}"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+    <!--日志输出的目的地：文件，线上定位问题使用-->
+    <appender name="FILE_ACTUATOR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${FILE_PATH_ACTUATOR}/${appName}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${FILE_PATH_ACTUATOR}/${appName}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <MaxHistory>100</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+
+
+    <!--线上环境-->
+    <springProfile name="pro">
+        <!-- 日志输出级别，根节点-->
+        <root level="info">
+            <appender-ref ref="FILE_STAT" />
+            <appender-ref ref="FILE_ACTUATOR" />
+        </root>
+    </springProfile>
+
+    <!--测试环境-->
+    <springProfile name="live,trunk">
+        <root level="info">
+            <appender-ref ref="FILE_ACTUATOR" />
+        </root>
+    </springProfile>
+
+    <!--本地环境-->
+    <!--<springProfile name="dev">-->
+        <!--<root level="info">-->
+            <!--<appender-ref ref="CONSOLE_LOCAL" />-->
+        <!--</root>-->
+    <!--</springProfile>-->
+
+
+
+    <!--自定义，日志输出级别，子节点-->
+    <!-- 指定项目中某个包，当有日志操作行为时的日志记录级别 -->
+    <!-- com.learn为根包，也就是只要是发生在这个根包下面的所有日志操作行为的权限都是DEBUG -->
+    <!-- 级别依次为【从高到低】：FATAL > ERROR > WARN > INFO > DEBUG > TRACE  -->
+    <!--<logger name="com.learn" level="DEBUG">
+        <appender-ref ref="CONSOLE_LOCAL" />
+    </logger>-->
+
+</configuration>

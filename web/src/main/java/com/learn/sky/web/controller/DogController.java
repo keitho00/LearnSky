@@ -3,10 +3,7 @@ package com.learn.sky.web.controller;
 import com.learn.sky.web.entity.common.CommonResult;
 import com.learn.sky.web.entity.req.DogReq;
 import com.learn.sky.web.entity.req.ListReq;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -24,8 +21,8 @@ public class DogController {
      * @param req
      * @return
      */
-    @GetMapping(value = "list")
-    public CommonResult list(@ModelAttribute @Valid ListReq<DogReq> req) {
+    @PostMapping(value = "/list")
+    public CommonResult list(@RequestBody @Valid ListReq<DogReq> req) {
         return CommonResult.success("");
     }
 
