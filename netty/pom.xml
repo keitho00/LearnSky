@@ -12,10 +12,11 @@
     <artifactId>netty</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>io.netty</groupId>
-            <artifactId>netty</artifactId>
+            <artifactId>netty-all</artifactId>
         </dependency>
     </dependencies>
-    
+
 </project>

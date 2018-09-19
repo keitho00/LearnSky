@@ -8,7 +8,6 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @Author: wanghao
  * @Date: 2018/8/10 下午4:05
  */
 public class EventBusTest {

@@ -6,7 +6,6 @@ import com.google.common.cache.CacheBuilder;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author: wanghao
  * @Date: 2018/4/23 下午6:50
  */
 public class CallbackDemo {

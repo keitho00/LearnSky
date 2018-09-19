@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * @Author: wanghao
  * @Date: 2018/8/10 下午3:58
  */
 @Data
