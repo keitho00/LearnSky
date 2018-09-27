@@ -94,12 +94,12 @@
         </root>
     </springProfile>
 
-    <!--本地环境-->
-    <!--<springProfile name="dev">-->
-        <!--<root level="info">-->
-            <!--<appender-ref ref="CONSOLE_LOCAL" />-->
-        <!--</root>-->
-    <!--</springProfile>-->
+    本地环境
+    <springProfile name="dev">
+        <root level="info">
+            <appender-ref ref="CONSOLE_LOCAL" />
+        </root>
+    </springProfile>
 
 
 

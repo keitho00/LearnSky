@@ -2,9 +2,9 @@ package com.learn.sky.web.entity.req;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.List;
 

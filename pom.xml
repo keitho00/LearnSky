@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
+        <version>1.5.9.RELEASE</version>
     </parent>
 
     <groupId>com.learn.sky</groupId>
@@ -24,6 +24,7 @@
         <module>protobuf</module>
         <module>mq</module>
         <module>tool</module>
+        <module>vert</module>
     </modules>
 
     <repositories>
@@ -201,6 +202,31 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>2.6.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.vertx</groupId>
+                <artifactId>vertx-core</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>4.4</version>
+            </dependency>
+
+            <!-- redis客户端开始 -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>2.9.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.7</version>
             </dependency>
         </dependencies>
 

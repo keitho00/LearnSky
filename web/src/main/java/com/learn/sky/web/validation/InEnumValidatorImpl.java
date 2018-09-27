@@ -2,7 +2,7 @@ package com.learn.sky.web.validation;
 
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.reflect.FieldUtils;
+import net.logstash.logback.encoder.org.apache.commons.lang.reflect.FieldUtils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

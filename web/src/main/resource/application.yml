@@ -13,6 +13,7 @@ spring:
     active: dev
   application:
     name: learn
-
 logging:
-  file: /config/logback-spring.xml
+  level: debug
+
+
