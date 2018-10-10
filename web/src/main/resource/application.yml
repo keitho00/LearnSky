@@ -15,5 +15,6 @@ spring:
     name: learn
 logging:
   level: debug
+  file: classpath*:logback-spring.xml
 
 
