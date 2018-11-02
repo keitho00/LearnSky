@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    druid:
+      source0:
+        url: jdbc:mysql://127.0.0.1:3306/learn_01
+        username: root
+        password:
+        driver-class-name: com.mysql.jdbc.Driver
+        filter:
+          stat:
+            enabled: true
+          config:
+            enabled: true
+          encoding:
+            enabled: true
+      source1:
+        url: jdbc:mysql://127.0.0.1:3306/learn_02
+        username: root
+        password:
+        driver-class-name: com.mysql.jdbc.Driver
+        filter:
+          stat:
+            enabled: true
+          config:
+            enabled: true
+          encoding:
+            enabled: true

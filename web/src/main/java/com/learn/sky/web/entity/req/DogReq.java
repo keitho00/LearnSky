@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @NoArgsConstructor
-public class DogReq implements Serializable {
+public class DogReq extends AnimalReq implements Serializable {
     private static final long serialVersionUID = 1087195022605271513L;
 
     @NotNull

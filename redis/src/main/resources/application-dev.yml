@@ -1,0 +1,11 @@
+spring:
+  redis:
+    password:
+    database: 0
+    port: 6379
+    host: 127.0.0.1
+    timeout: 1000
+    # 缓存默认时间 600s
+    ttl: 600
+swagger:
+  enable: true
