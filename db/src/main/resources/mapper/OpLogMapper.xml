@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.sky.db.dao.OpLogMapper">
+  <resultMap id="BaseResultMap" type="com.learn.sky.db.entity.OpLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="op_type" jdbcType="TINYINT" property="opType" />
+    <result column="ref_type" jdbcType="TINYINT" property="refType" />
+    <result column="ref_id" jdbcType="INTEGER" property="refId" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, op_type, ref_type, ref_id, `operator`, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from op_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from op_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.learn.sky.db.entity.OpLog">
+    insert into op_log (id, op_type, ref_type, 
+      ref_id, `operator`, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{opType,jdbcType=TINYINT}, #{refType,jdbcType=TINYINT}, 
+      #{refId,jdbcType=INTEGER}, #{operator,jdbcType=VARCHAR}, #{createTime,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.learn.sky.db.entity.OpLog">
+    insert into op_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="opType != null">
+        op_type,
+      </if>
+      <if test="refType != null">
+        ref_type,
+      </if>
+      <if test="refId != null">
+        ref_id,
+      </if>
+      <if test="operator != null">
+        `operator`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="opType != null">
+        #{opType,jdbcType=TINYINT},
+      </if>
+      <if test="refType != null">
+        #{refType,jdbcType=TINYINT},
+      </if>
+      <if test="refId != null">
+        #{refId,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.learn.sky.db.entity.OpLog">
+    update op_log
+    <set>
+      <if test="opType != null">
+        op_type = #{opType,jdbcType=TINYINT},
+      </if>
+      <if test="refType != null">
+        ref_type = #{refType,jdbcType=TINYINT},
+      </if>
+      <if test="refId != null">
+        ref_id = #{refId,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null">
+        `operator` = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.learn.sky.db.entity.OpLog">
+    update op_log
+    set op_type = #{opType,jdbcType=TINYINT},
+      ref_type = #{refType,jdbcType=TINYINT},
+      ref_id = #{refId,jdbcType=INTEGER},
+      `operator` = #{operator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

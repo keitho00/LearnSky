@@ -7,6 +7,7 @@ import com.dangdang.ddframe.rdb.sharding.api.rule.ShardingRule;
 import com.dangdang.ddframe.rdb.sharding.api.rule.TableRule;
 import com.dangdang.ddframe.rdb.sharding.api.strategy.database.DatabaseShardingStrategy;
 import com.dangdang.ddframe.rdb.sharding.api.strategy.table.TableShardingStrategy;
+import com.dangdang.ddframe.rdb.sharding.keygen.DefaultKeyGenerator;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -75,10 +76,11 @@ public class DataSourceConfig {
      */
     @Bean
     public ShardingRule shardingRule(DataSourceRule dataSourceRule) {
-        //具体分库分表策略
+        //到表级的具体分库分表策略
         TableRule orderTableRule = TableRule.builder("t_order")
                 .actualTables(Arrays.asList("t_order_0", "t_order_1", "t_order_2", "t_order_3"))
                 .tableShardingStrategy(new TableShardingStrategy("order_id", new ModuloTableShardingAlgorithm()))
+                .generateKeyColumn("id")
                 .dataSourceRule(dataSourceRule)
                 .build();
 
@@ -86,11 +88,12 @@ public class DataSourceConfig {
         List<BindingTableRule> bindingTableRules = new ArrayList<BindingTableRule>();
         bindingTableRules.add(new BindingTableRule(Arrays.asList(orderTableRule)));
         return ShardingRule.builder()
+                .keyGenerator(DefaultKeyGenerator.class)
                 .dataSourceRule(dataSourceRule)
                 .tableRules(Arrays.asList(orderTableRule))
                 .bindingTableRules(bindingTableRules)
-                .databaseShardingStrategy(new DatabaseShardingStrategy("user_id", new ModuloDatabaseShardingAlgorithm()))
-                .tableShardingStrategy(new TableShardingStrategy("order_id", new ModuloTableShardingAlgorithm()))
+                .databaseShardingStrategy(new DatabaseShardingStrategy("user_id", new ModuloDatabaseShardingAlgorithm()))//默认的分库策略
+                .tableShardingStrategy(new TableShardingStrategy("order_id", new ModuloTableShardingAlgorithm()))//默认的分表策略
                 .build();
     }
 

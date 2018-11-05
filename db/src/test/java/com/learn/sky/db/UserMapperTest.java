@@ -2,6 +2,7 @@ package com.learn.sky.db;
 
 import com.learn.sky.db.dao.UserMapper;
 import com.learn.sky.db.entity.UserEntity;
+import com.learn.tool.util.JsonUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,8 +24,18 @@ public class UserMapperTest {
 
     @Test
     public void insertTest() {
-        userMapper.insert(UserEntity.builder()
-                .user_id(1L)
-                .order_id(System.currentTimeMillis()).build());
+        for (long i = 0; i < 10L; i++) {
+            userMapper.insert(UserEntity.builder()
+                    .user_id(i)
+                    .order_id(System.currentTimeMillis()).build());
+        }
+    }
+
+    @Test
+    public void query() {
+        userMapper.getAll().forEach(userEntity -> {
+            System.out.println(JsonUtils.toJson(userEntity));
+        });
+
     }
 }
