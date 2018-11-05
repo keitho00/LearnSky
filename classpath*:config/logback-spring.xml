@@ -1,0 +1,85 @@
+2018-11-02 14:10:39.705  INFO 23911 --- [main] com.learn.sky.db.Application             : Starting Application on wanghaodeMacBook-Pro.local with PID 23911 (/Users/keitho00/Documents/project/github/LearnSky/db/target/classes started by keitho00 in /Users/keitho00/Documents/project/github/LearnSky)
+2018-11-02 14:10:39.715  INFO 23911 --- [main] com.learn.sky.db.Application             : The following profiles are active: dev
+2018-11-02 14:10:39.786  INFO 23911 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4135c3b: startup date [Fri Nov 02 14:10:39 CST 2018]; root of context hierarchy
+2018-11-02 14:10:40.240  WARN 23911 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.learn.sk.db.dao]' package. Please check your configuration.
+2018-11-02 14:10:40.343  WARN 23911 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.learn.sky.db]' package. Please check your configuration.
+2018-11-02 14:10:41.068  INFO 23911 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-11-02 14:10:41.078  INFO 23911 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-02 14:10:41.079  INFO 23911 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-11-02 14:10:41.177  INFO 23911 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-02 14:10:41.177  INFO 23911 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1396 ms
+2018-11-02 14:10:41.313  INFO 23911 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-02 14:10:41.319  INFO 23911 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-02 14:10:41.319  INFO 23911 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-02 14:10:41.319  INFO 23911 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-02 14:10:41.319  INFO 23911 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-02 14:10:42.479  INFO 23911 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4135c3b: startup date [Fri Nov 02 14:10:39 CST 2018]; root of context hierarchy
+2018-11-02 14:10:42.551  INFO 23911 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-02 14:10:42.551  INFO 23911 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-02 14:10:42.574  INFO 23911 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 14:10:42.575  INFO 23911 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 14:10:42.606  INFO 23911 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 14:10:42.878  INFO 23911 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-02 14:10:42.939  INFO 23911 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-11-02 14:10:42.943  INFO 23911 --- [main] com.learn.sky.db.Application             : Started Application in 3.83 seconds (JVM running for 4.673)
+2018-11-02 14:11:36.278  INFO 23911 --- [Thread-12] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4135c3b: startup date [Fri Nov 02 14:10:39 CST 2018]; root of context hierarchy
+2018-11-02 14:11:36.280  INFO 23911 --- [Thread-12] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-11-02 14:12:48.518  INFO 23943 --- [main] com.learn.sky.db.DbApplication           : Starting DbApplication on wanghaodeMacBook-Pro.local with PID 23943 (/Users/keitho00/Documents/project/github/LearnSky/db/target/classes started by keitho00 in /Users/keitho00/Documents/project/github/LearnSky)
+2018-11-02 14:12:48.523  INFO 23943 --- [main] com.learn.sky.db.DbApplication           : The following profiles are active: dev
+2018-11-02 14:12:48.570  INFO 23943 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@31304f14: startup date [Fri Nov 02 14:12:48 CST 2018]; root of context hierarchy
+2018-11-02 14:12:49.153  WARN 23943 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.learn.sk.db.dao]' package. Please check your configuration.
+2018-11-02 14:12:49.268  WARN 23943 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.learn.sky.db]' package. Please check your configuration.
+2018-11-02 14:12:50.043  INFO 23943 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-11-02 14:12:50.051  INFO 23943 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-02 14:12:50.052  INFO 23943 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-11-02 14:12:50.126  INFO 23943 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-02 14:12:50.127  INFO 23943 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1560 ms
+2018-11-02 14:12:50.292  INFO 23943 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-02 14:12:50.296  INFO 23943 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-02 14:12:50.297  INFO 23943 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-02 14:12:50.298  INFO 23943 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-02 14:12:50.300  INFO 23943 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-02 14:12:50.359  WARN 23943 --- [main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.learn.sky.db.dao.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2018-11-02 14:12:50.361  INFO 23943 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-11-02 14:12:50.378  INFO 23943 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-11-02 14:12:50.465 ERROR 23943 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.learn.sky.db.dao.UserMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.learn.sky.db.dao.UserMapper' in your configuration.
+
+2018-11-02 14:13:41.471  INFO 23954 --- [main] com.learn.sky.db.DbApplication           : Starting DbApplication on wanghaodeMacBook-Pro.local with PID 23954 (/Users/keitho00/Documents/project/github/LearnSky/db/target/classes started by keitho00 in /Users/keitho00/Documents/project/github/LearnSky)
+2018-11-02 14:13:41.474  INFO 23954 --- [main] com.learn.sky.db.DbApplication           : The following profiles are active: dev
+2018-11-02 14:13:41.521  INFO 23954 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a65fe7c: startup date [Fri Nov 02 14:13:41 CST 2018]; root of context hierarchy
+2018-11-02 14:13:42.609  INFO 23954 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-11-02 14:13:42.616  INFO 23954 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-02 14:13:42.617  INFO 23954 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-11-02 14:13:42.687  INFO 23954 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-02 14:13:42.687  INFO 23954 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1169 ms
+2018-11-02 14:13:42.800  INFO 23954 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-02 14:13:42.803  INFO 23954 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-02 14:13:42.804  INFO 23954 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-02 14:13:42.804  INFO 23954 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-02 14:13:42.804  INFO 23954 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-02 14:13:43.775  INFO 23954 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a65fe7c: startup date [Fri Nov 02 14:13:41 CST 2018]; root of context hierarchy
+2018-11-02 14:13:43.823  INFO 23954 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-02 14:13:43.824  INFO 23954 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-02 14:13:43.845  INFO 23954 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 14:13:43.846  INFO 23954 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 14:13:43.874  INFO 23954 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-02 14:13:44.165  INFO 23954 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-02 14:13:44.211  INFO 23954 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-11-02 14:13:44.214  INFO 23954 --- [main] com.learn.sky.db.DbApplication           : Started DbApplication in 3.256 seconds (JVM running for 3.926)
+2018-11-02 14:13:47.465  INFO 23954 --- [Thread-11] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2a65fe7c: startup date [Fri Nov 02 14:13:41 CST 2018]; root of context hierarchy
+2018-11-02 14:13:47.467  INFO 23954 --- [Thread-11] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown

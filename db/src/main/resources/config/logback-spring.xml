@@ -121,6 +121,11 @@
         <root level="debug">
             <appender-ref ref="CONSOLE_LOCAL" />
         </root>
+
+        <!--数据库参数-->
+        <logger name="com.learn.sky.db.dao" level="DEBUG" additivity="false">
+            <appender-ref ref="CONSOLE_LOCAL" />
+        </logger>
     </springProfile>
 
 
