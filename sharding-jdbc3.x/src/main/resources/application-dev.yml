@@ -1,0 +1,48 @@
+sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://127.0.0.1:3306/learn_01
+        username: root
+        password:
+        driver-class-name: com.mysql.jdbc.Driver
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        filters: stat,wall,log4j
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://127.0.0.1:3306/learn_02
+        username: root
+        password:
+        driver-class-name: com.mysql.jdbc.Driver
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        filters: stat,wall,log4j
+    config:
+      sharding:
+        default-database-strategy:
+          inline:
+            sharding-column: user_id
+            algorithm-expression: ds${user_id % 2}
+        tables:
+          t_order:
+            actual-data-nodes: ds${0..1}.t_order_${0..3}
+            key-generator-column-name: id
+            table-strategy:
+              inline:
+                sharding-column: order_id
+                algorithm-expression: t_order_${order_id % 4}
+        props:
+          sql.show: true
