@@ -29,20 +29,20 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>com.coreos</groupId>-->
-            <!--<artifactId>jetcd-core</artifactId>-->
+        <!--<groupId>com.coreos</groupId>-->
+        <!--<artifactId>jetcd-core</artifactId>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>io.grpc</groupId>-->
-            <!--<artifactId>grpc-netty</artifactId>-->
+        <!--<groupId>io.grpc</groupId>-->
+        <!--<artifactId>grpc-netty</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>io.grpc</groupId>-->
-            <!--<artifactId>grpc-stub</artifactId>-->
+        <!--<groupId>io.grpc</groupId>-->
+        <!--<artifactId>grpc-stub</artifactId>-->
         <!--</dependency>-->
     </dependencies>
 
@@ -59,21 +59,36 @@
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.5.0</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:3.2.0:exe:${os.detected.classifier}</protocArtifact>
-                    <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.3.0:exe:${os.detected.classifier}</pluginArtifact>
-                    <protoSourceRoot>src/main/proto</protoSourceRoot>
+                    <!--默认值-->
+                    <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
+                    <!--默认值-->
+                    <!--<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>-->
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    <!--设置是否在生成java文件之前清空outputDirectory的文件，默认值为true，设置为false时也会覆盖同名文件-->
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                    <!--默认值-->
+                    <temporaryProtoFileDirectory>${project.build.directory}/protoc-dependencies
+                    </temporaryProtoFileDirectory>
+                    <!--更多配置信息可以查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html-->
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>compile</goal>
-                            <goal>compile-custom</goal>
+                            <goal>test-compile</goal>
                         </goals>
+                        <!--也可以设置成局部变量，执行compile或test-compile时才执行-->
+                        <!--<configuration>-->
+                        <!--<protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>-->
+                        <!--<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>-->
+                        <!--<temporaryProtoFileDirectory>${project.build.directory}/protoc-dependencies</temporaryProtoFileDirectory>-->
+                        <!--</configuration>-->
                     </execution>
                 </executions>
             </plugin>
+            <!--原文：https://blog.csdn.net/qq_27273089/article/details/70230897-->
         </plugins>
     </build>
 </project>

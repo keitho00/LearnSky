@@ -1359,3 +1359,222 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class: com.learn.sky.db
 2018-11-20 17:28:01.210  INFO 59671 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@5965d37: startup date [Tue Nov 20 17:27:56 CST 2018]; root of context hierarchy
 2018-11-20 17:28:01.225  INFO 59671 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
 2018-11-20 17:28:01.231  INFO 59671 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2018-11-20 17:34:34.330  INFO 59916 --- [main] com.learn.sky.shard.UserMapperTest       : Starting UserMapperTest on wanghaodeMacBook-Pro.local with PID 59916 (started by keitho00 in /Users/keitho00/Documents/project/github/LearnSky/sharding-jdbc3.x)
+2018-11-20 17:34:34.331  INFO 59916 --- [main] com.learn.sky.shard.UserMapperTest       : The following profiles are active: dev
+2018-11-20 17:34:35.517  INFO 59916 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@43f02ef2: startup date [Tue Nov 20 17:34:35 CST 2018]; root of context hierarchy
+2018-11-20 17:34:36.624  INFO 59916 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure; factoryMethodName=dataSource; initMethodName=init; destroyMethodName=(inferred); defined in class path resource [com/alibaba/druid/spring/boot/autoconfigure/DruidDataSourceAutoConfigure.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=io.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [io/shardingsphere/shardingjdbc/spring/boot/SpringBootConfiguration.class]]
+2018-11-20 17:34:36.642  WARN 59916 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.learn.sky.shard]' package. Please check your configuration.
+2018-11-20 17:34:37.343  WARN 59916 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.learn.sky.shard.dao.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+2018-11-20 17:34:37.353  INFO 59916 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-11-20 17:34:37.621 ERROR 59916 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'com.learn.sky.shard.dao.UserMapper' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.learn.sky.shard.dao.UserMapper' in your configuration.
+
+2018-11-20 17:34:37.632 ERROR 59916 --- [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6c9f5c0d] to prepare test instance [com.learn.sky.shard.UserMapperTest@13cd7ea5]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83) ~[spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:189) ~[spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:131) ~[spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230) ~[spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:228) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:287) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:289) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:247) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:94) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:191) [spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.12.jar:4.12]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242) [junit-rt.jar:na]
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70) [junit-rt.jar:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.learn.sky.shard.dao.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:321) ~[spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) ~[spring-boot-1.5.9.RELEASE.jar:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) ~[spring-boot-1.5.9.RELEASE.jar:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) ~[spring-boot-1.5.9.RELEASE.jar:1.5.9.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:120) ~[spring-boot-test-1.5.9.RELEASE.jar:1.5.9.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98) ~[spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116) ~[spring-test-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.learn.sky.shard.dao.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1493) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1104) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:518) ~[spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:496) ~[spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:627) ~[spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:169) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88) ~[spring-beans-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:318) ~[spring-context-4.3.13.RELEASE.jar:4.3.13.RELEASE]
+	... 40 common frames omitted
+
+2018-11-20 17:35:20.904  INFO 59936 --- [main] com.learn.sky.shard.UserMapperTest       : Starting UserMapperTest on wanghaodeMacBook-Pro.local with PID 59936 (started by keitho00 in /Users/keitho00/Documents/project/github/LearnSky/sharding-jdbc3.x)
+2018-11-20 17:35:20.906  INFO 59936 --- [main] com.learn.sky.shard.UserMapperTest       : The following profiles are active: dev
+2018-11-20 17:35:21.606  INFO 59936 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@435871cb: startup date [Tue Nov 20 17:35:21 CST 2018]; root of context hierarchy
+2018-11-20 17:35:22.472  INFO 59936 --- [main] o.s.b.f.s.DefaultListableBeanFactory     : Overriding bean definition for bean 'dataSource' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure; factoryMethodName=dataSource; initMethodName=init; destroyMethodName=(inferred); defined in class path resource [com/alibaba/druid/spring/boot/autoconfigure/DruidDataSourceAutoConfigure.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=io.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration; factoryMethodName=dataSource; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [io/shardingsphere/shardingjdbc/spring/boot/SpringBootConfiguration.class]]
+2018-11-20 17:35:24.885  INFO 59936 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-11-20 17:35:24.962  INFO 59936 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2018-11-20 17:35:26.005  INFO 59936 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@435871cb: startup date [Tue Nov 20 17:35:21 CST 2018]; root of context hierarchy
+2018-11-20 17:35:26.117  INFO 59936 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-20 17:35:26.120  INFO 59936 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-20 17:35:26.159  INFO 59936 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-20 17:35:26.160  INFO 59936 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-20 17:35:26.208  INFO 59936 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-20 17:35:27.144  INFO 59936 --- [main] com.learn.sky.shard.UserMapperTest       : Started UserMapperTest in 7.348 seconds (JVM running for 9.111)
+2018-11-20 17:35:27.453  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.455  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.455  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.456  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds0 ::: INSERT INTO
+        t_order_0
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527224, 0, null, null, MAN, 271694125508591616]]
+2018-11-20 17:35:27.855  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.856  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.856  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.856  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds1 ::: INSERT INTO
+        t_order_3
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527855, 1, null, null, MAN, 271694127609937920]]
+2018-11-20 17:35:27.861  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.861  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.861  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.861  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds0 ::: INSERT INTO
+        t_order_0
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527860, 2, null, null, MAN, 271694127630909440]]
+2018-11-20 17:35:27.866  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.866  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.866  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.866  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds1 ::: INSERT INTO
+        t_order_1
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527865, 3, null, null, MAN, 271694127656075264]]
+2018-11-20 17:35:27.872  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.872  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.872  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.873  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds0 ::: INSERT INTO
+        t_order_3
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527871, 4, null, null, MAN, 271694127677046784]]
+2018-11-20 17:35:27.875  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.876  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.876  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.876  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds1 ::: INSERT INTO
+        t_order_3
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527875, 5, null, null, MAN, 271694127693824000]]
+2018-11-20 17:35:27.879  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.879  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.879  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.880  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds0 ::: INSERT INTO
+        t_order_3
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527879, 6, null, null, MAN, 271694127710601216]]
+2018-11-20 17:35:27.883  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.883  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.883  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.883  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds1 ::: INSERT INTO
+        t_order_2
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527882, 7, null, null, MAN, 271694127723184128]]
+2018-11-20 17:35:27.887  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.887  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.887  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.887  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds0 ::: INSERT INTO
+        t_order_2
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527886, 8, null, null, MAN, 271694127739961344]]
+2018-11-20 17:35:27.892  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Rule Type: sharding
+2018-11-20 17:35:27.892  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Logic SQL: INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord,user_sex)
+        VALUES
+        (?,?,concat('user_',?), ?, ?)
+2018-11-20 17:35:27.893  INFO 59936 --- [main] Sharding-Sphere-SQL                      : SQLStatement: InsertStatement(super=DMLStatement(super=AbstractSQLStatement(type=DML, tables=Tables(tables=[Table(name=t_order, alias=Optional.absent())]), conditions=Conditions(orCondition=OrCondition(andConditions=[AndCondition(conditions=[Condition(column=Column(name=order_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=0}), Condition(column=Column(name=user_id, tableName=t_order), operator=EQUAL, positionValueMap={}, positionIndexMap={0=1})])])), sqlTokens=[TableToken(skippedSchemaNameLength=0, originalLiterals=t_order), ItemsToken(isFirstOfItemsSpecial=false, items=[id]), io.shardingsphere.core.parsing.parser.token.InsertValuesToken@6c225adb], parametersIndex=5)), columns=[Column(name=order_id, tableName=t_order), Column(name=user_id, tableName=t_order), Column(name=userName, tableName=t_order), Column(name=passWord, tableName=t_order), Column(name=user_sex, tableName=t_order)], generatedKeyConditions=[], insertValues=InsertValues(insertValues=[InsertValue(type=VALUES, expression=(?,?,concat('user_',?), ?, ?), parametersCount=5)]), columnsListLastPosition=80, generateKeyColumnIndex=-1, insertValuesListLastPosition=134)
+2018-11-20 17:35:27.894  INFO 59936 --- [main] Sharding-Sphere-SQL                      : Actual SQL: ds1 ::: INSERT INTO
+        t_order_3
+        (order_id,user_id,userName,passWord,user_sex, id)
+        VALUES
+        (?,?,concat('user_',?), ?, ?, ?) ::: [[1542706527891, 9, null, null, MAN, 271694127760932864]]
+2018-11-20 17:35:27.910  INFO 59936 --- [Thread-2] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@435871cb: startup date [Tue Nov 20 17:35:21 CST 2018]; root of context hierarchy
+2018-11-20 17:35:27.927  INFO 59936 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2018-11-20 17:35:27.931  INFO 59936 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed

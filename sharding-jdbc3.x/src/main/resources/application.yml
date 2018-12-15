@@ -13,6 +13,11 @@ spring:
     active: dev
   application:
     name: learn
+
+mybatis:
+  typeAliasesPackage: com.learn.sky.shard.entity
+  mapperLocations: classpath:mapper/*.xml
+
 logging:
   level: debug
   file: classpath*:config/logback-spring.xml

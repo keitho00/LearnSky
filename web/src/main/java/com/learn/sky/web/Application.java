@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Author: wanghao
  * @Date: 2018/9/18 下午2:08
  */
-
+//@EnableAsync
 @SpringBootApplication
         (
         scanBasePackages = "com.learn.sky"
