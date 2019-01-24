@@ -31,13 +31,6 @@ public class LocalDateUtil {
         return LocalDate.of(localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth());
     }
 
-    public static String format(Integer time, DataFormatEnum pattern) {
-        Instant instant = Instant.ofEpochMilli(time * THOUSAND);
-        ZoneId zone = ZoneId.systemDefault();
-        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);
-        DateTimeFormatter df = DateTimeFormatter.ofPattern(pattern.getFormat());
-        return LocalDate.of(localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth()).format(df);
-    }
 
     public static String format(LocalDate localDate, DataFormatEnum pattern) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern(pattern.getFormat());
