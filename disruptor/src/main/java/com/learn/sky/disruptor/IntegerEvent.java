@@ -4,16 +4,15 @@ package com.learn.sky.disruptor;
  * @Author: JiuBuKong
  * @Date: 2019/1/21 下午4:11
  */
-public class LongEvent {
+public class IntegerEvent {
 
-    private Long value;
+    private Integer value;
 
-    public void set(long value)
-    {
+    public void set(Integer value) {
         this.value = value;
     }
 
-    public Long getValue() {
+    public Integer getValue() {
         return value;
     }
 }
