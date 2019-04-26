@@ -33,6 +33,12 @@
             <version>0.2.1</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.learn.sky</groupId>
+            <artifactId>tool</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

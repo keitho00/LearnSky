@@ -36,4 +36,8 @@ public class RpcDecoder extends ByteToMessageDecoder {
         in.readBytes(data);
         out.add(serialization.deserialize(data, genericClass));
     }
+
+    public static void main(String[] args) {
+        System.out.println(RpcDecoder.class.getName());
+    }
 }
