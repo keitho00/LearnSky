@@ -9,6 +9,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 /**
+ * 解码
  * @Author: JiuBuKong
  * @Date: 2019/4/25 下午8:03
  */

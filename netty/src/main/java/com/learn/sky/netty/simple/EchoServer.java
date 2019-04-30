@@ -1,4 +1,4 @@
-package com.learn.sky.netty;
+package com.learn.sky.netty.simple;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -29,7 +29,6 @@ public class EchoServer {
     }
 
     public void start() throws InterruptedException {
-        EchoServerHandler handler = new EchoServerHandler();
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
@@ -39,7 +38,7 @@ public class EchoServer {
                     .childHandler(new ChannelInitializer() {
                         @Override
                         protected void initChannel(Channel channel) throws Exception {
-                            channel.pipeline().addLast(handler);
+                            channel.pipeline().addLast(new EchoServerHandler());
                         }
                     });
             ChannelFuture f = b.bind().sync();   // ❻异步地绑定服务器；调用sync() 方法阻塞等待直到绑定完成

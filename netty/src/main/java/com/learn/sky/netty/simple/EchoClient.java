@@ -1,4 +1,4 @@
-package com.learn.sky.netty;
+package com.learn.sky.netty.simple;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -27,8 +27,7 @@ public class EchoClient {
         EventLoopGroup group = new NioEventLoopGroup();
         try {   //  创建Bootstrap
             Bootstrap b = new Bootstrap();    //  指定EventLoopGroup以处理客户端事件；需要适用于NIO的实现
-            b
-                    .group(group)
+            b.group(group)
                     .channel(NioSocketChannel.class)     //  适用于NIO传输的Channel类型
                     .remoteAddress(new InetSocketAddress(host, port))     //  设置服务器的InetSocketAddr-ess
                     .handler(new ChannelInitializer<SocketChannel>() {   // 在创建Channel时，向ChannelPipeline中添加一个Echo-ClientHandler实例
@@ -47,15 +46,6 @@ public class EchoClient {
     }
 
     public static void main(String[] args) throws Exception {
-//        if (args.length != 2) {
-//            System.err.println(
-//                    "Usage: " + EchoClient.class.getSimpleName() +
-//                            " <host> <port>");
-//            return;
-//        }
-
-//        String host = args[0];
-//        int port = Integer.parseInt(args[1]);
         new EchoClient("127.0.0.1", 2001).start();
     }
 }

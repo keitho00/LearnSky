@@ -8,6 +8,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
+ * 编码
  * @Author: JiuBuKong
  * @Date: 2019/4/25 下午8:36
  */
