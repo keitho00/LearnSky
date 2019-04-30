@@ -10,7 +10,6 @@ import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 import java.util.List;
 
 /**
- * @Author: wanghao
  * @Date: 2018/8/30 上午11:37
  */
 public class Consumer {

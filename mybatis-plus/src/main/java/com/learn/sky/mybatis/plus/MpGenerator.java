@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Author: wanghao
  * @Date: 2018/6/12 下午9:33
  */
 public class MpGenerator {

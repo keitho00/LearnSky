@@ -3,7 +3,6 @@ package org.mybatis.generator.plugins;
 import com.google.gson.Gson;
 
 /**
- * @Author: wanghao
  * @Date: 2018/4/25 下午5:51
  */
 public class Test {

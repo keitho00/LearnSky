@@ -7,7 +7,6 @@ import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 /**
- * @Author: wanghao
  * @Date: 2018/8/30 上午11:10
  */
 public class Producer {

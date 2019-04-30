@@ -1,7 +1,6 @@
 package com.learn.sky.squirrel;
 
 /**
- * @Author: wanghao
  * @Date: 2018/5/4 下午5:14
  */
 public class DemoContext {

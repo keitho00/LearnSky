@@ -21,7 +21,6 @@ import javax.annotation.Resource;
  *
  * 此处只是样例  并不能直接使用
  * 主要提供一个properties获取mq属性，Config生产生产者、消费者的类
- * @Author: wanghao
  * @Date: 2018/8/27 下午4:38
  */
 @Slf4j

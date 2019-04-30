@@ -7,7 +7,6 @@ import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
- * @Author: wanghao
  * @Date: 2018/4/25 下午5:50
  */
 public class Dog extends Base {

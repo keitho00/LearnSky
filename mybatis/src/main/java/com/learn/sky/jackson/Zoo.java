@@ -1,15 +1,10 @@
 package com.learn.sky.jackson;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
 /**
- * @Author: wanghao
  * @Date: 2018/5/14 下午8:52
  */
 

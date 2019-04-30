@@ -7,7 +7,6 @@ import org.squirrelframework.foundation.fsm.annotation.StateMachineParameters;
 import org.squirrelframework.foundation.fsm.impl.AbstractUntypedStateMachine;
 
 /**
- * @Author: wanghao
  * @Date: 2018/5/2 下午4:51
  */
 public class QuickStartSample {

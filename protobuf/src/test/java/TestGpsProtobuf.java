@@ -4,7 +4,6 @@ import com.kcode.protobuf.domain.GpsData;
 import org.junit.Test;
 
 /**
- * @Author: wanghao
  * @Date: 2018/8/22 上午11:19
  */
 public class TestGpsProtobuf {
@@ -51,7 +50,7 @@ public class TestGpsProtobuf {
         Entity.Person.Builder personBuilder = Entity.Person.newBuilder();
         personBuilder.addPhone(Entity.Person.Phone.newBuilder().setNumber("111").setType(Entity.Person.PhoneType.HOME).build());
         personBuilder.setId(1);
-        personBuilder.setName("wanghao酒不空");
+        personBuilder.setName("酒不空");
 
         Entity.Person person = personBuilder.build();
         System.out.println(person.toString());

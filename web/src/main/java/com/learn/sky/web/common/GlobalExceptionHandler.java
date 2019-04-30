@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
- * @Author: wanghao
  * @Date: 2018/6/21 下午4:51
  */
 @RestControllerAdvice

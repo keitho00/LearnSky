@@ -1,25 +1,11 @@
 package com.learn.sky.mybatis.plus.config;
 
-import com.baomidou.mybatisplus.MybatisConfiguration;
-import com.baomidou.mybatisplus.MybatisXMLLanguageDriver;
-import com.baomidou.mybatisplus.entity.GlobalConfiguration;
-import com.baomidou.mybatisplus.mapper.LogicSqlInjector;
-import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
-import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
-import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
-import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.type.JdbcType;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ResourceLoader;
-
-import javax.sql.DataSource;
 
 /**
- * @Author: wanghao
  * @Date: 2018/6/12 下午9:17
  */
 @Configuration

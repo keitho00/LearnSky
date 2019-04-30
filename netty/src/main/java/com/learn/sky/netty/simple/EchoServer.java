@@ -11,7 +11,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import java.net.InetSocketAddress;
 
 /**
- * @Author: wanghao
  * @Date: 2018/9/18 下午4:23
  */
 public class EchoServer {

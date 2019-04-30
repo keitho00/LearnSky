@@ -6,7 +6,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @Author: wanghao
  * @Date: 2018/7/16 上午11:31
  */
 @Slf4j

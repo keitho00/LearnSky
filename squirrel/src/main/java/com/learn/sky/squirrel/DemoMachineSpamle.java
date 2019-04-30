@@ -5,7 +5,6 @@ import org.squirrelframework.foundation.fsm.annotation.*;
 import org.squirrelframework.foundation.fsm.impl.AbstractUntypedStateMachine;
 
 /**
- * @Author: wanghao
  * @Date: 2018/5/4 下午5:20
  */
 @States({
