@@ -29,6 +29,7 @@
         <module>sharding-jdbc1.x</module>
         <module>sharding-jdbc3.x</module>
         <module>disruptor</module>
+        <module>proxy</module>
     </modules>
 
     <repositories>
