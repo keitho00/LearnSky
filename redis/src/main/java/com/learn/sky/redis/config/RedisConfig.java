@@ -4,11 +4,15 @@ import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.scripting.support.ResourceScriptSource;
 
 import javax.annotation.Resource;
 
@@ -43,7 +47,8 @@ public class RedisConfig {
     }
 
 
-    @Bean
+    @Bean("redisTemplate")
+    @Primary
     RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
         redisTemplate.setConnectionFactory(jedisConnectionFactory);
@@ -57,11 +62,25 @@ public class RedisConfig {
         return redisTemplate;
     }
 
-    @Bean
+    @Bean("stringRedisTemplate")
     StringRedisTemplate stringRedisTemplate() {
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate(jedisConnectionFactory);
         return stringRedisTemplate;
     }
 
+    @Bean(name = "checkandset")
+    public DefaultRedisScript<Boolean> checkandset() {
+        DefaultRedisScript<Boolean> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("lua/checkandset.lua")));
+        redisScript.setResultType(Boolean.class);
+        return redisScript;
+    }
+    @Bean(name = "incrscript")
+    public DefaultRedisScript<String> incrscript() {
+        DefaultRedisScript<String> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("lua/incrscript.lua")));
+        redisScript.setResultType(String.class);
+        return redisScript;
+    }
 
 }

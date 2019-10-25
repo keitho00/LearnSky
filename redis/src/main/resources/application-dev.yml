@@ -7,5 +7,34 @@ spring:
     timeout: 1000
     # 缓存默认时间 600s
     ttl: 600
+
+
+bigData:
+  redis:
+    configMap:
+      templateZero:
+        host: 127.0.0.1
+        port: 6379
+        password:
+        timeout: 0
+        database: 0
+      templateOne:
+        host: 127.0.0.1
+        port: 6379
+        password:
+        timeout: 0
+        database: 0
+      templateTwo:
+        host: 127.0.0.1
+        port: 6379
+        password:
+        timeout: 0
+        database: 0
+      templateThree:
+        host: 127.0.0.1
+        port: 6379
+        password:
+        timeout: 0
+        database: 0
 swagger:
   enable: true
