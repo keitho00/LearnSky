@@ -2,6 +2,7 @@ package com.learn.sky.hbase;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * @Author: JiuBuKong
@@ -9,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
         (
-                scanBasePackages = "com.learn.sky.hbase"
+                scanBasePackages = "com.learn.sky.hbase",
+                exclude = DataSourceAutoConfiguration.class
         )//指定扫描的类
 public class HbaseApplication {
     public static void main(String[] args) {

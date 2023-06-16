@@ -28,8 +28,16 @@ public class HBaseClient {
     @Autowired
     private HbaseConfig config;
 
-    private static Connection connection = null;
-    private static Admin admin = null;
+    private Connection connection = null;
+    private Admin admin = null;
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
 
     @PostConstruct
     private void init() {
@@ -46,6 +54,7 @@ public class HBaseClient {
 
     /**
      * create 'tableName','[Column Family 1]','[Column Family 2]'
+     *
      * @param tableName
      * @param columnFamilies 列族名
      * @throws IOException
@@ -70,6 +79,7 @@ public class HBaseClient {
 
     /**
      * put <tableName>,<rowKey>,<family:column>,<value>,<timestamp>
+     *
      * @param tableName
      * @param rowKey
      * @param columnFamily
@@ -84,6 +94,7 @@ public class HBaseClient {
 
     /**
      * put <tableName>,<rowKey>,<family:column>,<value>,<timestamp>
+     *
      * @param tableName
      * @param rowKey
      * @param columnFamily
@@ -127,6 +138,7 @@ public class HBaseClient {
 
     /**
      * delete 'tableName','rowKey','columnFamily:column'
+     *
      * @param tableName
      * @param rowKey
      * @param columnFamily
@@ -142,6 +154,7 @@ public class HBaseClient {
 
     /**
      * disable 'tableName' 之后 drop 'tableName'
+     *
      * @param tableName
      * @throws IOException
      */
@@ -157,6 +170,7 @@ public class HBaseClient {
 
     /**
      * get 'tableName','rowkey','family:column'
+     *
      * @param tableName
      * @param rowkey
      * @param family
@@ -196,6 +210,7 @@ public class HBaseClient {
 
     /**
      * get 'tableName','rowKey'
+     *
      * @param tableName
      * @param rowKey
      * @return
@@ -222,6 +237,7 @@ public class HBaseClient {
 
     /**
      * scan 't1',{FILTER=>"PrefixFilter('2015')"}
+     *
      * @param tableName
      * @param rowKeyFilter
      * @return
@@ -253,8 +269,9 @@ public class HBaseClient {
 
     /**
      * 判断表是否已经存在，这里使用间接的方式来实现
-     *
+     * <p>
      * admin.tableExists() 会报NoSuchColumnFamilyException， 有人说是hbase-client版本问题
+     *
      * @param tableName
      * @return
      * @throws IOException

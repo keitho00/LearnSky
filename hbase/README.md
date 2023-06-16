@@ -1,0 +1,2 @@
+HBaseService和HBaseClient分别为两个Hbase操作的实现方式  
+Hbase是一个key/value的非关系数据库，当存储数据较多，Redis无法存储时，可以考虑使用Hbase来作为替代，其性能也是非常优秀
