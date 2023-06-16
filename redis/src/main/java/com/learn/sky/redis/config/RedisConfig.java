@@ -9,12 +9,13 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import org.springframework.scripting.support.ResourceScriptSource;
 
 import javax.annotation.Resource;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Spring redis 和 cache的配置文件
@@ -69,18 +70,26 @@ public class RedisConfig {
     }
 
     @Bean(name = "checkandset")
-    public DefaultRedisScript<Boolean> checkandset() {
-        DefaultRedisScript<Boolean> redisScript = new DefaultRedisScript<>();
-        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("lua/checkandset.lua")));
-        redisScript.setResultType(Boolean.class);
-        return redisScript;
+    public String checkandset() throws IOException {
+        return readScript("lua/checkandset.lua");
     }
     @Bean(name = "incrscript")
-    public DefaultRedisScript<String> incrscript() {
-        DefaultRedisScript<String> redisScript = new DefaultRedisScript<>();
-        redisScript.setScriptSource(new ResourceScriptSource(new ClassPathResource("lua/incrscript.lua")));
-        redisScript.setResultType(String.class);
-        return redisScript;
+    public String incrscript() throws IOException {
+        return readScript("lua/incrscript.lua");
     }
+
+    private String readScript(String url) throws IOException {
+        ClassPathResource classPathResource = new ClassPathResource(url);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(classPathResource.getInputStream(), "UTF-8"));
+        String s; // 依次循环，至到读的值为空
+        StringBuilder sb = new StringBuilder();
+        while ((s = reader.readLine()) != null) {
+            sb.append(s);
+            sb.append(" ");
+        }
+        reader.close();
+        return sb.toString().substring(0,sb.length()-1);
+    }
+
 
 }

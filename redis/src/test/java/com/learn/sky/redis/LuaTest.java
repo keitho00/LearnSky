@@ -22,16 +22,17 @@ import java.util.Collections;
 public class LuaTest {
 
     @Resource(name = "checkandset")
-    DefaultRedisScript<Boolean> redisScript;
+    String checkandset;
 
     @Resource(name = "incrscript")
-    DefaultRedisScript<String> incrScript;
+    String incrScript;
 
     @Resource
     RedisTemplate redisTemplate;
 
     @Resource
     StringRedisTemplate stringRedisTemplate;
+
     @Test
     public void testRedisLua() {
         String key = "testredislua";
@@ -40,6 +41,10 @@ public class LuaTest {
         redisTemplate.opsForValue().set(key, "hahaha");
         String s = (String) redisTemplate.opsForValue().get(key);
         log.info("1=======" + s);
+
+        DefaultRedisScript<Boolean> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptText(checkandset);
+        redisScript.setResultType(Boolean.class);
         redisTemplate.execute(redisScript, Collections.singletonList(key), "hahaha", "3333");
         s = (String) redisTemplate.opsForValue().get(key);
         log.info("2=======" + s);
@@ -50,7 +55,11 @@ public class LuaTest {
         String key = "incrscript";
         redisTemplate.delete(key);
         redisTemplate.opsForValue().set(key, "1");
-        String res = (String) stringRedisTemplate.execute(incrScript, Collections.singletonList(key), "1", "10", "1000");
+
+        DefaultRedisScript<String> redisScript = new DefaultRedisScript<>();
+        redisScript.setScriptText(incrScript);
+        redisScript.setResultType(String.class);
+        String res = (String) stringRedisTemplate.execute(redisScript, Collections.singletonList(key), "1", "10", "1000");
         log.info("res:" + res);
     }
 }

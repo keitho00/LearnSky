@@ -1,0 +1,1 @@
+` add  `use_biz_id` int(11) NOT NULL DEFAULT '0' COMMENT '使用业务方id';

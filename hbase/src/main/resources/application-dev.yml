@@ -1,0 +1,7 @@
+hbase:
+  config:
+    hbase:
+      zookeeper:
+        quorum: ord-server-hbase.live.unp.oyw
+        property:
+          clientPort: 2181

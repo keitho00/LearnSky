@@ -1,18 +1,11 @@
 package com.learn.sky.mybatis.plus;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
-import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @Date: 2018/6/12 下午9:33
@@ -61,17 +54,21 @@ public class MpGenerator {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("");
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/marketing_middle2?characterEncoding=utf8");
+//        dsc.setUsername("root");
+//        dsc.setPassword("");
+//        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/learn_02?characterEncoding=utf8");
+        dsc.setUsername("php_vod_web");
+        dsc.setPassword("8RQQImYH2G2esU3HqKb8");
+        dsc.setUrl("jdbc:mysql://10.1.104.15:3322/dy_wsd_currency?characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
-        strategy.setTablePrefix(new String[] { "op_", "tsys_" });// 此处可以修改为您的表前缀
+//        strategy.setTablePrefix(new String[] { "op_", "tsys_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        // strategy.setInclude(new String[] { "user" }); // 需要生成的表
+         strategy.setInclude(new String[] { "business_type" ,"currency_operation_log",
+                 "operation_log","profit_type","txn_region","transaction_type","txn_type"}); // 需要生成的表
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类
         // strategy.setSuperEntityClass("com.baomidou.demo.TestEntity");
@@ -95,45 +92,44 @@ public class MpGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.learn.sky.mybatis.plus");
-        pc.setModuleName("test");
+        pc.setParent("com.learn.sky.mybatis.plus.test");
         mpg.setPackageInfo(pc);
 
-        // 注入自定义配置，可以在 VM 中使用 cfg.abc 【可无】
-        InjectionConfig cfg = new InjectionConfig() {
-            @Override
-            public void initMap() {
-                Map<String, Object> map = new HashMap<String, Object>();
-                map.put("abc", this.getConfig().getGlobalConfig().getAuthor() + "-mp");
-                this.setMap(map);
-            }
-        };
-
-        // 自定义 xxList.jsp 生成
-        List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
-        focList.add(new FileOutConfig("/template/list.jsp.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输入文件名称
-                return "D://my_" + tableInfo.getEntityName() + ".jsp";
-            }
-        });
-        cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
-
-        // 调整 xml 生成目录演示
-        focList.add(new FileOutConfig("/templates/mapper.xml.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                return "/develop/code/xml/" + tableInfo.getEntityName() + ".xml";
-            }
-        });
-        cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
+//        // 注入自定义配置，可以在 VM 中使用 cfg.abc 【可无】
+//        InjectionConfig cfg = new InjectionConfig() {
+//            @Override
+//            public void initMap() {
+//                Map<String, Object> map = new HashMap<String, Object>();
+//                map.put("abc", this.getConfig().getGlobalConfig().getAuthor() + "-mp");
+//                this.setMap(map);
+//            }
+//        };
+//
+//        // 自定义 xxList.jsp 生成
+//        List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
+//        focList.add(new FileOutConfig("/template/list.jsp.vm") {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                // 自定义输入文件名称
+//                return "D://my_" + tableInfo.getEntityName() + ".jsp";
+//            }
+//        });
+//        cfg.setFileOutConfigList(focList);
+//        mpg.setCfg(cfg);
+//
+//        // 调整 xml 生成目录演示
+//        focList.add(new FileOutConfig("/templates/mapper.xml.vm") {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                return "/develop/code/xml/" + tableInfo.getEntityName() + ".xml";
+//            }
+//        });
+//        cfg.setFileOutConfigList(focList);
+//        mpg.setCfg(cfg);
 
         // 关闭默认 xml 生成，调整生成 至 根目录
         TemplateConfig tc = new TemplateConfig();
-        tc.setXml(null);
+        tc.setController(null);
         mpg.setTemplate(tc);
 
         // 自定义模板配置，可以 copy 源码 mybatis-plus/src/main/resources/templates 下面内容修改，
